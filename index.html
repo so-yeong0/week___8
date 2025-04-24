@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <style>
+
+    @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;}
+
+     @font-face {
+    font-family: 'Pretendard-ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: ExtraBold;}
+
+       @font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 800;
+    font-style: Bold;}
+
+    body, h1, h2, h3, p, ol, ul, hr{margin: 0; padding: 0}
+    header{padding: 160px 0px;}
+    section{background: black;}
+    h1{color: #6AFF00; font-size: 3rem}
+    h2{color: #6AFF00; font-size: 3rem; font-family: 'Pretendard-Bold'}
+    h3{color: white; font-family: 'Pretendard-Regular'}
+    p{color: white; font-family: 'Pretendard-Regular'; font-size: 1.2rem; line-height: 1.6;}
+
+/* 헤더에 쓰인 relative, position 잡아놓은 것들 */
+    .image-container{position: relative; width: 50%;}
+    .title{position: absolute; top: 63%; left: 35%; color: #6AFF00; font-size: 4.2rem;font-family: 'Pretendard-ExtraBold'; text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);}
+    .title-2{position: absolute; top: 57%; left: 36%; color: #6AFF00; font-size: 2rem;font-family: 'Pretendard-Regular'; text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);}
+
+/* wrap과 flex */
+    .wrap{width: 1000px; margin: auto; position: relative;}
+    .flex{display: flex; justify-content: space-evenly; align-items: center;}
+    .flex2{display: flex; justify-content: space-between; align-items: center;}
+
+
+/* 백그라운드 */
+    .bg-header{background: url(background-0.png); background-attachment: fixed; background-size: cover;}
+    .bg-s1{background: url(background-4.png); background-size: cover; position: relative;
+      z-index: 0;}
+    .bg-gray{background: #181818; background-size: cover;}
+    .imgfix {position: fixed; top: 0; left: 0; width: 100%; height: auto;  z-index: -1;pointer-events: none;}
+
+
+/* 이미지 사이즈  */
+    .imgsize{width: 70%; max-width: 550px}
+    .imgsize2{width: 30%; max-width: 550px}
+    .imgsize3{width: 70%; max-width: 550px; z-index: 2;}  /* 라인이 위로 깔리게 */
+    .imgsize5{width: 10%; display: block;}
+    .imgsize6{width: 25%;}
+    .imgsize7{width: 35%;}
+    .imgsize8{width: 151%;}
+    .imgsize9{width: 40%;}
+    .imgsize10{width: 120%;}
+    .imgsize11{width: 300%;}
+
+/* 이미지에 겹치게 */
+    .n01{ position: absolute; top: 82%; left: 0%; z-index: 2;}
+
+/*  사진 밑으로 라인 올리기..  */
+    .imgdown {position: relative; z-index: -1;}
+
+
+/* 3x3  */
+    .imgsize4 {width: 90%; max-width: 550px;}
+    .wrap.flex > div {flex: 1;}
+
+
+/* 폰트 사이즈 */
+    .f-s{font-size: 0.8rem}
+
+/* 패딩, 정렬 */
+    .down {padding-top: 350px;}
+    .up {padding-bottom: 700px;}
+    .top {padding-top: 100px;}
+    .top2 {padding-top: 200px;}
+    .bottom0 {padding-bottom: 50px;}
+    .bottom {padding-bottom: 100px;}
+    .bottom2 {padding-bottom: 200px;}
+    .bottom3 {margin-top: 1700px; }
+    .t-r{text-align: right;}
+    .right{padding-left: 15px}
+    .right2{padding-left: 0px}
+    .left{padding-right: 25px}
+    .llleft{margin-left: -70px}
+    .llleft2{margin-left: -255px}
+
+/* 기능설명때 position: absolte로 위치잡기...*/
+    .p01{position: absolute; top: 34%; left: 58%; }
+    .p02{position: absolute; top: 89%; left: 27%; }
+    .p03{position: absolute; top: 510px; left: 695px; }
+    .p04{position: absolute; top: 720px; left: 540px; }
+    .p05{position: absolute; top: 1240px; left: 120px; }
+    .p06{position: absolute; top: 450px; left: 450px; }
+    .p07{position: absolute; top: 1130px; left: 120px; }
+    .p08{position: absolute; top: 1650px; left: 120px; }
+    .i01-2{position: absolute; top: 60%; left: 70%; }
+    .i02-1{position: absolute; top: 400px; left: 0%; }
+    .i03-2{position: absolute; top: 200px; left: 0px; }
+    .i03-3{position: absolute; top: 600px; left: 300px; }
+    .i03-4{position: absolute; top: 950px; left: 560px; }
+    .b1{position: absolute; top: 200px; left: 180px; }
+    .b2{position: absolute; top: 100px; left: 460px; }
+    .b3{position: absolute; top: 1500px; left: 460px; }
+
+/* 자세히 보기 button */
+    .button {background-color: #6AFF00; color: black; padding: 15px 30px; font-size: 1rem;
+      border: none; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: background-color 0.3s ease; position: relative; z-index: 10;}
+    .button:hover {background-color: #55d700; color: #181818}
+
+/* 이미지호버링 */
+.hover-img-wrapper {position: relative; display: inline-block; width: fit-content; height: fit-content; }
+
+.img-default {position: absolute; top: 400px; left: 0; width: 450px; height: auto; transition: opacity 0.3s ease;}
+.img-hover {position: absolute; top: 395px; left: 0; width: 1510px; height: auto; transition: opacity 0.3s ease; z-index: 1001}
+
+.img-hover {opacity: 0; pointer-events: none; }
+
+.hover-img-wrapper:hover .img-hover { opacity: 1; }
+
+.hover-img-wrapper:hover .img-default {opacity: 0;}
+
+
+
+/* line들 */
+    .line-1{position: absolute; top: 350px; width: 100%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line-2{position: absolute; top: 715px; width: 100%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line-3{position: absolute; top: 1063px; width: 100%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line-4{position: absolute; top: 1423px; width: 100%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line-5{position: absolute; top: 3756px; width: 100%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line--1{position: absolute; top: 0px; left: 265px; width: 0.03%; height: 1850px; background-color: #6AFF00; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line--2{position: absolute; top: 0px; left: 808px; width: 0.03%; height: 715px; background-color: #6AFF00; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line--3{position: absolute; top: 0px; left: 1245px; width: 0.03%; height: 3175px;background-color: #6AFF00; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line--4{position: absolute; top: 715px; left: 695px; width: 0.03%; height: 348px; background-color: #6AFF00; animation: neonGlow 1s ease-in-out infinite alternate;}
+    .line--5{position: absolute; top: 1063px; left: 815px; width: 0.03%; height: 600px; background-color: #6AFF00; animation: neonGlow 1s ease-in-out infinite alternate;}
+/* 질문라인들 */
+    .line-6{position: absolute; top: 4575px; width: 30%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-7{position: absolute; top: 5915px; width: 30%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-8{position: absolute; top: 6775px; left: 506px; width: 30%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-9{position: absolute; top: 7233px; left: 523px; width: 29.7%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-10{position: absolute; top: 8425px; left: 950px; width: 37%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-11{position: absolute; top: 8695px; left: 670px; width: 24%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-12{position: absolute; top: 9190px; left: 375px; width: 75%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-13{position: absolute; top: 10668px; left: 535px; width: 36%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    .line-14{position: absolute; top: 11375px; left: 375px; width: 31.7%; height: 0.5px; background-color: #6AFF00; z-index: 1000; animation: neonGlow 1s ease-in-out infinite alternate; z-index: 1;}
+    
+
+
+/* 애니메이션 */
+    .floating {animation: float 2s ease-in-out infinite; }
+    @keyframes float {  0% { transform: translateY(0px); }  50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+    @keyframes neonGlow { 0% {box-shadow: 0 0 5px #6AFF00, 0 0 10px #6AFF00, 0 0 20px #6AFF00, 0 0 30px #6AFF00; opacity: 0.6;} 50% {box-shadow: 0 0 10px #6AFF00, 0 0 20px #6AFF00, 0 0 40px #6AFF00, 0 0 60px #6AFF00; opacity: 1;} 100% {box-shadow: 0 0 5px #6AFF00, 0 0 10px #6AFF00, 0 0 20px #6AFF00, 0 0 30px #6AFF00; opacity: 0.6; } }
+
+  </style>
+  
+</head>
+
+
+<body>
+
+<header class="bg-header">
+  <div class="wrap image-container">
+    <img src="logophone-1.png" class="imgsize floating" >
+    <h3 class="title-2">회피형 인간을 위한 정당한 탈출도구 모음집</h3>
+    <h1 class="title">도망력 BOOSTER</h1>
+  </div>
+</header>
+
+
+<section class="bg-s1">
+    <div class="line-1"></div>
+    <div class="line-2"></div>
+    <div class="line-3"></div>
+    <div class="line-4"></div>
+    <div class="line--1"></div>
+    <div class="line--2"></div>
+    <div class="line--3"></div>
+    <div class="line--4"></div>
+    <div class="line--5"></div>
+
+    <div class="wrap flex down">
+         <img src="world.png" class="imgsize imgdown" style="margin-right: 150px;" >
+         <h3 style="margin-right: 150px;"> 모두가 연결된 세상</h3>
+    </div>
+    <div class="wrap flex">
+         <h3 style="margin-left: 150px;"> 복잡한 현대사회</h3>
+         <img src="subway.png" class="imgsize imgdown" style="margin-left: 150px;">
+
+    </div>
+    <div class="wrap flex up">
+         <img src="night.png" class="imgsize imgdown" style="margin-right: 150px;">
+         <h3 style="margin-right: 150px;"> 끝나지 않는 야근</h3>
+    </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p> 수많은 것들로부터 지금 당장<br> <strong>도망</strong>치고 싶은 당신을 위해</p>
+  </div>
+  <div class="line-5"></div>
+  <div class="wrap flex">
+    <img src="logophone-2.png" class="imgsize3 top bottom2 floating">
+    <div class="left">
+      <p class="t-r">도망에도 테크놀로지가 필요하다!<br><strong>현대인에게 꼭 필요한 회피 전문 키트 APP</strong></p>
+      <h2 class="t-r">도망력 BOOSTER</h2>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="line-6"></div>
+  <div class="wrap down bottom">
+    <p> 누구를 위한 서비스인가요?</p>
+  </div>
+
+  <div class="wrap flex bottom0">
+    <div>
+      <img src="service-1.png" class="imgsize4">
+      <p class="f-s right"> 시도때도 없이 울리는 카톡 소리에서 벗어나고 싶은 사람 </p>
+    </div>
+    <div>
+      <img src="service-2.png" class="imgsize4">
+      <p class="f-s right"> 회식 직전에 발목이라도 삐고 싶어지는 사람</p>
+    </div>
+    <div>
+      <img src="service-3.png" class="imgsize4">
+      <p class="f-s right">집에 있어도 집에 가고싶은 사람</p>
+    </div>
+  </div>
+
+    <div class="wrap flex bottom0">
+    <div>
+      <img src="service-4.png" class="imgsize4">
+      <p class="f-s right"> 약속이 갑자기 취소되길 간절히 바라는 사람 </p>
+    </div>
+    <div>
+      <img src="service-5.png" class="imgsize4">
+      <p class="f-s right"> 아무 이유없이 아무것도 안 하고 싶은 날이 많은 사람</p>
+    </div>
+    <div>
+      <img src="service-6.png" class="imgsize4">
+      <p class="f-s right">카톡, 인스타 다 지워버리고 싶은 충동을 느끼는 사람</p>
+    </div>
+  </div>
+
+    <div class="wrap flex bottom0">
+    <div>
+      <img src="service-7.png" class="imgsize4">
+      <p class="f-s right"> 갑자기 몸이 아픈 척 해본 적 있는 사람 </p>
+    </div>
+    <div>
+      <img src="service-8.png" class="imgsize4">
+      <p class="f-s right"> 단 1초도 말하기 싫은 날이 있는 사람</p>
+    </div>
+    <div>
+      <img src="service-9.png" class="imgsize4">
+      <p class="f-s right">오늘도 ‘나 없는 세계'를 상상해본 사람</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="line-7"></div>
+
+  <div class="wrap down bottom">
+    <p> 어떤 서비스를 제공하나요?</p>
+    <p class="f-s top"> 당신의 도망 본능을 완벽하게 서포트할 <br>강력한 세가지 기능을 소개합니다.</p>
+    <img src="01.png" class="imgsize5 top llleft">
+    <h2 class="n01">회피조기탐지스캐너</h2>
+  </div>
+
+  <div class="wrap">
+    <p> 오늘 약속, 회식, 면담… 왠지 모르게 불안하다면?</p>
+    <img src="01-1.png" class="imgsize6 top bottom2">
+    <p class="p01 t-r"> 회피감지 AI가 <br> 당신의 회피 촉을 <br> 자동 분석해 <br> 알려줘요. </p>
+    <img src="01-2.png" class="imgsize7 i01-2">
+    <p class="p02"> "오늘은 그냥 집에 있어야 할 날"이라는 <br> 경고를 미리 받아보세요. </p>
+    <a href="#" class="button b1"> <strong> 자세히 보기 </strong> </a>
+  </div>
+
+  <div class="line-8"></div>
+  <div class="line-9"></div>
+
+  <div class="wrap down bottom">
+    <p></p>
+    <img src="02.png" class="imgsize5 top llleft">
+    <h2 class="n01">은둔모드 버튼</h2>
+  </div>
+
+  <div class="wrap">
+    <div class="hover-img-wrapper">
+      <img src="02-1.png" class="i02-1 imgsize9 img-default">
+      <img src="02-2.png" class="llleft2 imgsize11 img-hover">
+    </div>
+
+    <img src="bg-02-bg.png" class="imgsize8 llleft2">
+
+    <p class="p03">세상과의 연결을 끊고 싶은 퇴근길</p>
+    <p class="p04 t-r">
+      한 번의 터치로 <br> 집 안의 조명, 커튼, 핸드폰 알림, <br> 스피커를 모두 OFF!
+    </p>
+    <p class="p05">
+      완벽한 은둔 모드를 만들어드립니다. <br> 당신만의 안전지대를 확보하세요.
+    </p>
+    <a href="#" class="button b2"><strong>자세히 보기</strong></a>
+  </div>
+
+
+  <div class="line-10"></div>
+  <div class="line-11"></div>
+  <div class="line-12"></div>
+
+
+  <div class="wrap down bottom">
+    <img src="03.png" class="imgsize5 top llleft">
+    <h2 class="n01">(긴급)전화왔어요!!!</h2>
+  </div>
+
+
+  <div class="wrap bottom0">
+    <p> 가기 싫은 회식 자리, 빠지고 싶은 약속 자리... </p>
+    <img src="bg-03-1.png" class="imgsize10 llleft2 imgfix">
+    <img src="03-2.png" class="imgsize7 i03-2">
+    <p class="p06 t-r"> 당신이 원하는 바로 그 타이밍에, <br> ‘(긴급) 전화왔어요!!’ 기능이 당신을 구해드립니다.</p>
+    <img src="03-3.png" class="imgsize9 i03-3">
+    <p class="p07"> 엄마, 팀장님, 택배기사, 병원 등 <br> 다양한 테마의 긴급 전화 시뮬레이션으로 <br> 자연스럽게 자리를 빠져나갈 수 있어요. </p>
+    <img src="03-4.png" class="imgsize7 i03-4">
+    <a href="#" class="button b3"> <strong> 자세히 보기 </strong> </a>
+     <p class="p08">&nbsp;</p>
+  </div>
+
+  <div class="line-13"></div>
+  <div class="line-14"></div>
+
+</section>
+
+
+<section>
+  <div class="wrap bottom3">
+    <p class="down"> 도망조차도 <br> 마음대로 되지 않을 때 </p>
+    <h2 class="t-r top2">도망력 BOOSTER</h2>
+    <p class="t-r">를<br>작동시키세요</p>
+    <img src="logophone-3.png" class="right2 top bottom2 floating">
+    
+  </div>
+</section>
+
+
+   
+</body>
+
+</html>
